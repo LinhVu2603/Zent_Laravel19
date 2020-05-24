@@ -79,5 +79,13 @@
                 <a href="https://blog.laravel.com">Mục tiêu sau khi kết thúc khóa Laravel:</a>Thành thạo lập trình với Framework laravel và có công việc thực tập.
             </div>
         </div>
+        <form action="/post" method="post">
+            {{ csrf_field() }}
+            <input type="text" name="abd">
+            <input type="submit" name="abc">
+        </form>
+        
+        <a href="{{route('todo.task.complete')}}">Finish</a>
+        <a href="{{route('todo.task.reset')}}">Reset</a>
     </body>
 </html>

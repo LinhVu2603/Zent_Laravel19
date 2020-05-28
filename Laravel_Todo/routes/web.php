@@ -44,22 +44,52 @@ Route::prefix('admin')->group(function(){
 });
 
 // Bài 2.1
-Route::get('task/complete/3', function (){
+Route::get('task/complete/{id}', function ($id){
 	return view('welcome');
 })->name('todo.task.complete');
 
-Route::get('task/reset/3', function (){
+Route::get('task/reset/{id}', function ($id){
 	return view('welcome');
 })->name('todo.task.reset');
 
 //Group bài 2.1
 
 Route::prefix('task')->group(function(){
-	Route::get('complete/3', function () {
+	Route::get('complete/{id}', function ($id) {
 		dd('Tính năng hoàn thành!');
 	})->name('todo.task.complete');
 
-	Route::get('reset/3', function () {
+	Route::get('reset/{id}', function ($id) {
 		dd('Tính năng làm lại!');
 	})->name('todo.task.reset');;
 });
+
+Route::get('/profile',function(){
+	return view('profile')->with([
+		'name' => 'Vũ Thùy Linh',
+		'birthyear' => '1999',
+		'school' => 'Đại học Bách Khoa Hà Nội',
+		'country' => 'Hải Phòng',
+		'profile' => 'Đây là 1 cái profile:',
+		'target' => 'Developement'
+	]);
+});
+
+Route::get('/list', function(){
+	return view('list')->with('list',[
+        [
+            'name' => 'Học View trong Laravel',
+            'status' => 0
+        ],
+        [
+            'name' => 'Học Route trong Laravel',
+            'status' => 1
+        ],
+        [
+            'name' => 'Làm bài tập View trong Laravel',
+            'status' => -1
+        ]
+    ]);
+});
+
+// Route::get('list', 'Admin\AdminListController@index');

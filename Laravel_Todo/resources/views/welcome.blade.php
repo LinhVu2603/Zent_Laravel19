@@ -85,7 +85,7 @@
             <input type="submit" name="abc">
         </form>
         
-        <a href="{{route('todo.task.complete')}}">Finish</a>
-        <a href="{{route('todo.task.reset')}}">Reset</a>
+        <a href="{{route('todo.task.complete',4)}}">Finish</a>
+        <a href="{{route('todo.task.reset',4)}}">Reset</a>
     </body>
 </html>

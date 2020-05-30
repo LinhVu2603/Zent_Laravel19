@@ -93,3 +93,28 @@ Route::get('/list', function(){
 });
 
 // Route::get('list', 'Admin\AdminListController@index');
+// Route::resource('task','frontend\TaskController');
+Route::prefix('backend')->namespace('Backend')->group(function(){
+	Route::prefix('products')->group(function(){
+		Route::get('/','ProductController@index')->name('backend.product.index');
+	});
+	Route::prefix('users')->group(function(){
+		Route::get('/', 'UserController@index')->name('backend.user.index');
+	});
+})
+Route::prefix('frontend')->namespace('Frontend')->group(function(){
+	Route::prefix('products')->group(function(){
+		Route::get('/', 'ProductController@index')->name('frontend.product.index');
+	});
+	Route::prefix('task')->group(function(){
+		Route::get('/', 'TaskController@index')->name('task.index');
+		Route::post('/','TaskController@store')->name('task.store');
+		Route::get('complete/{id}', 'Closure')->name('todo.task.complete');
+		Route::get('create', 'TaskController@create')->name('task.create');
+		Route::get('reset/{id}', 'Closure')->name('todo.task.reset');
+		Route::get('/{task}', 'TaskController@show')->name('task.show');
+		Route::get('/{task}', 'TaskController@update')->name('task.update');
+		Route::get('/{task}', 'TaskController@destroy')->name('task.destroy');
+		Route::get('/{task}/edit', 'TaskController@edit')->name('task.edit');
+	});
+});

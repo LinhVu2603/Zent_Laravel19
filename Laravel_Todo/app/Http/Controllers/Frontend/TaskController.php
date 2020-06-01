@@ -14,7 +14,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        return view('frontend.tasks.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('frontend.tasks.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->only(['name','deadline']);
+        dd($input);
     }
 
     /**
@@ -46,7 +47,7 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('frontend.tasks.show');
     }
 
     /**
@@ -57,7 +58,7 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('frontend.tasks.edit');
     }
 
     /**
@@ -78,8 +79,21 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+        $input2 = $request->get('id');
+        dd($input2);
+        // $input = $request->only(['name','deadline']);
+        // dd($input);
     }
+
+    public function complete($id)
+    {
+
+    }
+    public function reComplete($id)
+    {
+
+    }
+
 }

@@ -14,7 +14,26 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('frontend.tasks.index');
+        $listWork = array(
+            "w1" => array(
+                "id" => 1,
+                "name" => "Bài tập Laravel",
+                "deadline" => "31/5/2020"
+            ),
+            "w2" => array(
+                "id" => 2,
+                "name" => "Bài tập PHP",
+                "deadline" => "31/5/2020"
+            ),
+            "w3" => array(
+                "id" => 3,
+                "name" => "Bài tập Tối ưu",
+                "deadline" => "31/5/2020"
+            )
+        );
+        return view('frontend.tasks.index',[
+            'listWork' => $listWork
+        ]);
     }
 
     /**
@@ -87,13 +106,15 @@ class TaskController extends Controller
         // dd($input);
     }
 
-    public function complete($id)
+    public function complete($id, Request $request)
     {
-
+        $input3 = $request->get('id');
+        dd($input3);
     }
-    public function reComplete($id)
+    public function reComplete($id, Request $request)
     {
-
+        $input4 = $request->get('id');
+        dd($input4);
     }
 
 }

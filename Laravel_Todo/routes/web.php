@@ -108,7 +108,7 @@ Route::prefix('frontend')->namespace('Frontend')->group(function(){
 	});
 	Route::prefix('task')->group(function(){
 		Route::get('/', 'TaskController@index')->name('task.index');
-		Route::post('/','TaskController@store')->name('task.store');
+		Route::post('store','TaskController@store')->name('task.store');
 		// Route::get('complete/{id}', 'Closure')->name('todo.task.complete');
 		Route::get('create', 'TaskController@create')->name('task.create');
 		// Route::get('reset/{id}', 'Closure')->name('todo.task.reset');

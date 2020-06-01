@@ -46,8 +46,6 @@
     			<p>To Do</p>
     		</div>
     		<div id="content">
-    			<form method="POST" action="{{ route('task.store') }}">
-    				{{ csrf_field() }}
 					<table class="table">
 	                    <thead>
 	                        <th>ID</th>
@@ -56,62 +54,54 @@
 	                        <th>Action</th>
 	                    </thead>
 	                    <tr>
-	                    	<td>1</td>	
-	                    	<td>Bài tập về nhà Laravel</td>
-	                    	<td>31/5</td>
+	                    	<form action="{{ route('task.store') }}" method="post">
+			    				{{ csrf_field() }}	
+		                    	<td><input type="text" value="{{ $listWork['w1']['id']}}" name="id"></td>
+		                    	<td><input type="text" value="{{ $listWork['w1']['name']}}" name="name"></td>
+		                    	<td><input type="text" value="{{ $listWork['w1']['deadline']}}" name="deadline"></td>
+		                 		<td><button class="btn btn-primary">Submit</button></td>
+	                    	</form>
 	                        <td>
 	                            <a href="" class="btn btn-primary">Show</a>
 	                            <a href="" class="btn btn-success">Edit</a>
-                            	<a href="{{ route('task.destroy',['id' => 1]) }}" class="btn btn-danger">Delete</a>
-	                            <a href="" class="btn btn-info">Complete</a>
-	                            <a href="" class="btn btn-warning">Redo</a>
+	                            <a href="{{ route('task.destroy', $listWork['w1']['id']) }}" class="btn btn-danger">Delete</a>
+	                            <a href="{{ route('task.complete', $listWork['w1']['id']) }}" class="btn btn-info">Complete</a>
+	                            <a href="{{ route('task.reComplete', $listWork['w1']['id']) }}" class="btn btn-warning">Redo</a>
 	                        </td>
 	                    </tr>
 	                    <tr>
-	                    	<td>
-	                    		<input type="text" name="id">
-	                    	</td>
-	                    	<td>
-	                    		<input type="text" name="name" placeholder="Thing to do?">
-	                    	</td>
-	                    	<td>
-								<input type="text" name="deadline" placeholder="Deadline">
-	                    	</td>
+	                    	<form action="{{ route('task.store') }}" method="post">
+			    				{{ csrf_field() }}	
+		                    	<td><input type="text" value="{{ $listWork['w2']['id']}}" name="id"></td>
+		                    	<td><input type="text" value="{{ $listWork['w2']['name']}}" name="name"></td>
+		                    	<td><input type="text" value="{{ $listWork['w2']['deadline']}}" name="deadline"></td>
+		                 		<td><button class="btn btn-primary">Submit</button></td>
+	                    	</form>
 	                        <td>
 	                            <a href="" class="btn btn-primary">Show</a>
 	                            <a href="" class="btn btn-success">Edit</a>
-	                            <a href="{{ route('task.destroy',['id' => 2]) }}" class="btn btn-danger">Delete</a>
-	                            <a href="" class="btn btn-info">Complete</a>
-	                            <a href="" class="btn btn-warning">Redo</a>
+	                            <a href="{{ route('task.destroy', $listWork['w2']['id']) }}" class="btn btn-danger">Delete</a>
+	                            <a href="{{ route('task.complete', $listWork['w2']['id']) }}" class="btn btn-info">Complete</a>
+	                            <a href="{{ route('task.reComplete', $listWork['w2']['id']) }}" class="btn btn-warning">Redo</a>
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                    	<form action="{{ route('task.store') }}" method="post">
+			    				{{ csrf_field() }}	
+		                    	<td><input type="text" value="{{ $listWork['w3']['id']}}" name="id"></td>
+		                    	<td><input type="text" value="{{ $listWork['w3']['name']}}" name="name"></td>
+		                    	<td><input type="text" value="{{ $listWork['w3']['deadline']}}" name="deadline"></td>
+		                 		<td><button class="btn btn-primary">Submit</button></td>
+	                    	</form>
+	                        <td>
+	                            <a href="" class="btn btn-primary">Show</a>
+	                            <a href="" class="btn btn-success">Edit</a>
+	                            <a href="{{ route('task.destroy', $listWork['w3']['id']) }}" class="btn btn-danger">Delete</a>
+	                            <a href="{{ route('task.complete', $listWork['w3']['id']) }}" class="btn btn-info">Complete</a>
+	                            <a href="{{ route('task.reComplete', $listWork['w3']['id']) }}" class="btn btn-warning">Redo</a>
 	                        </td>
 	                    </tr>
 	                </table>
-	    			{{-- <div class="ct1">
-	    				<input type="checkbox" name="">Bài tập về nhà Laravel
-	    				<a href="" class="btn btn-primary">Edit</a>
-	    				<a href="" class="btn btn-danger">Delete</a>
-	    			</div>
-	    			<div class="ct1">
-	    				<input type="checkbox" name="">Mua loa máy tính
-	    				<a href="" class="btn btn-primary">Edit</a>
-	    				<a href="" class="btn btn-danger">Delete</a>
-	    			</div>
-	    			<div class="ct1">
-	    				<input type="checkbox" name="">Bài tập lớn Cơ sở dữ liệu
-	    				<a href="" class="btn btn-primary">Edit</a>
-	    				<a href="" class="btn btn-danger">Delete</a>
-	    			</div>
-	    			<div class="ct1">
-	    				<input type="checkbox" name="" >
-	    				<input type="text" name="name" placeholder="Thing to do??" >
-	    				<input type="text" name="deadline" placeholder="Deadline" >
-	    				<a href="" class="btn btn-primary">Edit</a>
-	    				<a href="" class="btn btn-danger">Delete</a>
-	    			</div> --}}
-	    			<div class="ct1">
-	    				<input type="submit" name="" class="btn btn-primary">
-	    			</div>
-	    		</form>
     		</div>
     	</div>
     </div>

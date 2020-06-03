@@ -55,6 +55,7 @@
 	                    </thead>
 	                    <tr>
 	                    	<form action="{{ route('task.store') }}" method="post">
+	                    		@method('delete')
 			    				{{ csrf_field() }}	
 		                    	<td><input type="text" value="{{ $listWork['w1']['id']}}" name="id"></td>
 		                    	<td><input type="text" value="{{ $listWork['w1']['name']}}" name="name"></td>

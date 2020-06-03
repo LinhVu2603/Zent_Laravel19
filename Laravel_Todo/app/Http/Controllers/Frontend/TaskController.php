@@ -53,9 +53,8 @@ class TaskController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $input = $request->only(['name','deadline']);
-        dd($input);
+    { 
+        dd($request->only(['name','deadline']));
     }
 
     /**
@@ -98,23 +97,24 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, Request $request)
+    public function destroy(Request $request, $id )
     {
-        $input2 = $request->get('id');
-        dd($input2);
+        dd($request->get('id'));
         // $input = $request->only(['name','deadline']);
         // dd($input);
     }
 
     public function complete($id, Request $request)
     {
-        $input3 = $request->get('id');
-        dd($input3);
+        echo "Hàm complete";
+        dd($id);
     }
     public function reComplete($id, Request $request)
     {
-        $input4 = $request->get('id');
-        dd($input4);
+        echo "Hàm Recomplete.";
+        dd($id);
+        // dd($request->route('reComplete'));
+
     }
 
 }

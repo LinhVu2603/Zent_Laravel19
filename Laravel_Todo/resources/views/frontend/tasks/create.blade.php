@@ -1,60 +1,73 @@
-@extends('layouts.master');
-
-@section('css')
-<style type="text/css">
-	#header{
-		width: 100%;	
-		background-image: url('https://www.appmachine.com/wp-content/uploads/2016/02/No-Branding-Header-Background-1.jpg');
-	}
-	#header p{
-		font-size: 48px;
-		color: white;
-		font-family: 'Chelsea Market', cursive;
-		margin-top: 15%;
-		padding-left: 5%;
-	}
-	#content{
-		width: 100%;
-	}
-</style>
-@endsection
-
-@section('title')
-Create Todo
-@endsection
-
+@extends('layouts.master')
 @section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div id="header">
-			<p>To Do</p>
-		</div>
-		<div id="content">
-			<table class="table">
-                    <thead>
-                        <th>ID</th>
-                        <th>Tên công việc</th>
-                        <th>Mô tả công việc</th>
-                        <th>Trạng thái</th>
-                        <th>Thời hạn công việc</th>
-                    </thead>
-                    <tr>
-                    	<form action="{{ route('task.store') }}" method="post">
-                    		{{-- @method('delete') --}}
-		    				{{ csrf_field() }}	
-	                    	<td><input type="text" name="id"></td>
-	                    	<td><input type="text" name="name"></td>
-	                    	<td><input type="text" name="content"></td>
-							<td><input type="text" name="status"></td>
-	                    	<td><input type="text" name="deadline"></td>
-	                 		<td><button class="btn btn-primary">Create</button></td>
-                    	</form>
-                    </tr>
-                </table>
-		</div>
-	</div>
-</div>
-@endsection
+    <div class="col-sm-offset-2 col-sm-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Thêm công việc mới
+            </div>
+            <div class="panel-body">
+                <!-- New Task Form -->
+                <form
+                    action="{{ route('task.store')  }}"
+                    method="POST" class="form-horizontal">
+                    {{ csrf_field() }}
 
-@section('script')
-@endsection
+                <!-- Task Name -->
+                    <div class="form-group">
+                        <label for="task-name" class="col-sm-3 control-label">Tên công việc</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" name="name" id="task-name" class="form-control" value="{{ old('name') }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-name" class="col-sm-3 control-label">Mô tả</label>
+
+                        <div class="col-sm-6">
+                            <textarea name="content" class="form-control">{{ old('content') }}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-name" class="col-sm-3 control-label">Trạng thái</label>
+
+                        <div class="col-sm-6">
+                            <select class="form-control" name="status">
+                                <option value="-1">Không làm</option>
+                                <option value="0">Chưa làm</option>
+                                <option value="1">Đang làm</option>
+                                <option value="2">Đã xong</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-name" class="col-sm-3 control-label">Ưu tiên</label>
+
+                        <div class="col-sm-6">
+                            <select class="form-control" name="priority">
+                                <option value="0">Bình thường</option>
+                                <option value="1">Quan trọng</option>
+                                <option value="2">Khẩn cấp</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-name" class="col-sm-3 control-label">Thời hạn hoàn thành</label>
+
+                        <div class="col-sm-6">
+                            <input type="datetime-local" name="deadline" id="task-deadline" class="form-control" value="{{ old('deadline') }}">
+                        </div>
+                    </div>
+
+                    <!-- Add Task Button -->
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-6">
+                            <button type="submit" class="btn btn-default">
+                                <i class="fa fa-btn fa-plus"></i>Thêm công việc
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @endsection

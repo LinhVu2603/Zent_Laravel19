@@ -1,4 +1,4 @@
-{{-- @extends('backend.layouts.master')
+@extends('backend.layouts.master')
 
 @section('css')
 @endsection
@@ -69,4 +69,4 @@
         </div>
         <!-- /.row (main row) -->
     </div>
-@endsection --}}
+@endsection

@@ -1,4 +1,4 @@
-@extends('backend.layouts.master')
+{{-- @extends('backend.layouts.master')
 
 @section('css')
 @endsection
@@ -614,4 +614,4 @@
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
-@endsection
+@endsection --}}

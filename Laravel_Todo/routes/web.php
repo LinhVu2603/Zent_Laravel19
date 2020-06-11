@@ -60,3 +60,25 @@ Route::group([
         Route::get('/create', 'UserController@create')->name('backend.user.create');
     });
 });
+Route::group([
+  'namespace' => 'Frontend',
+  'prefix' => 'frontend'
+], function(){
+    // Trang dashboard - trang chủ admin
+  Route::get('','HomeController@index')->name('frontend.index');
+  Route::get('/blank',function(){
+    return view('frontend.blank');
+  })->name('frontend.blank');
+  Route::get('checkout',function(){
+    return view('frontend.checkout');
+  })->name('frontend.checkout');
+    // Quản lý sản phẩm
+  Route::group(['prefix' => 'products'], function(){
+     Route::get('/page', function(){
+      return view('frontend.productPage');
+     })->name('frontend.productPage');
+     Route::get('', function(){
+      return view('frontend.products');
+     })->name('frontend.products');
+  });
+});

@@ -14,18 +14,18 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            // $table->id();
-            // $table->string('name');
-            // $table->string('slug')->default(0);
-            // $table->integer('origin_price')->default(0);
-            // $table->integer('sale_price')->default(0);
-            // $table->double('discount_percent')->default(0);
-            // $table->string('content')->nullable();
-            // $table->integer('user_id')->nullable();
-            // $table->string('category_id')->nullable();
-            // $table->integer('status')->default(0);
-            // $table->timestamps();
-            // $table->timestamp('deleted_at')->nullable();
+            $table->id();
+            $table->string('name');
+            $table->string('slug')->default(0);
+            $table->integer('origin_price')->default(0);
+            $table->integer('sale_price')->default(0);
+            $table->double('discount_percent')->default(0);
+            $table->string('content')->nullable();
+            $table->integer('user_id')->nullable();
+            $table->string('category_id')->nullable();
+            $table->integer('status')->default(0);
+            $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

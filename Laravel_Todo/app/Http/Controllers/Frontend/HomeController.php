@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        $users = DB::table('users')->get();
+        return view('frontend.index')->with([
+            'users' => $users
+        ]);
+        // $users = DB::table('users')->get();
+        // $users = DB::table('users')->where('name','admin2')->first();
+        // $users = DB::table('users')->select('name')->get();
+        // DB::table('users')
+        //     ->where('id', 2)
+        //     ->update(['role' => 0]);
+        // DB::table('users')->where('id', 3)->delete();
+        // dd('ok');
     }
 
     /**

@@ -42,12 +42,17 @@ use Illuminate\Support\Facades\Route;
 // });
 // Route::resource('task','Frontend\TaskController');
 	
+// Route::get('','Frontend\HomeController@index');
 
+// Route::get('',function(){
+  // $users = \Illuminate\Support\Facades\DB::table('users')->get();
+  // dd($users);
+// });
 //Route for DashboardControlller
 Route::group([
 	'namespace' => 'Backend',
 	'prefix' => 'admin'
-], function(){
+], function(){  
     // Trang dashboard - trang chủ admin
 	Route::get('/dashboard','DashboardController@index')->name('backend.dashboard');
     // Quản lý sản phẩm

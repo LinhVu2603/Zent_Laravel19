@@ -14,7 +14,7 @@ class AddDeadlineColumnTasksTable extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->date_time_set('deadline')->after('status');
+            $table->dateTime('deadline')->after('status');
         });
     }
 
